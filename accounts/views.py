@@ -23,7 +23,7 @@ def registerPage(request):
 			form = CreateUserForm(request.POST)
 			if form.is_valid():
 				form.save()
-				user = form.cleaned_data.get('username')
+				user = form.cleaned_data.get('name')
 				messages.success(request, 'Account was created for ' + user)
 
 				return redirect('login')
@@ -37,10 +37,10 @@ def loginPage(request):
 		return redirect('home')
 	else:
 		if request.method == 'POST':
-			username = request.POST.get('username')
+			email = request.POST.get('email')
 			password =request.POST.get('password')
 
-			user = authenticate(request, username=username, password=password)
+			user = authenticate(request, email=email, password=password)
 
 			if user is not None:
 				login(request, user)
@@ -53,7 +53,7 @@ def loginPage(request):
 
 def forgotPassword(request):
     context = {}
-    return render(request, 'accounts/forgot.html', context)
+    return render(request, 'accounts/password_reset.html', context)
 
 
 def logoutUser(request):

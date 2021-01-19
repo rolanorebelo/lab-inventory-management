@@ -93,7 +93,7 @@
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
 							</div>
 
-							<input type="text" name="username" placeholder="EmpId" class="form-control">
+							<input type="text" name="email" placeholder="Email..." class="form-control">
 						</div>
 
 						<div class="input-group mb-2">
@@ -128,7 +128,7 @@
 				{% endfor %}			
                 <div class="mt-4">
 					<div class="d-flex justify-content-center links" style="color: white;">
-						 <a href="{% url 'forgot' %}" class="ml-2">Forgot Password?</a>
+						 <a href="{% url 'password-reset' %}" class="ml-2">Forgot Password?</a>
 					</div>
 			
 				</div>
