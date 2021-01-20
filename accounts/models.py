@@ -1,6 +1,7 @@
 from django.db import models
 from django import forms
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.contrib.auth.models import PermissionsMixin
 
 # Create your models here.
 
@@ -31,7 +32,7 @@ class MyAccountManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-class Userr(AbstractBaseUser):
+class Userr(AbstractBaseUser, PermissionsMixin):
     empid = models.CharField(verbose_name="empid",max_length=10, unique=True)
     name = models.CharField(max_length=200, null=True)
     email = models.EmailField(verbose_name="email", max_length=60, unique=True)
